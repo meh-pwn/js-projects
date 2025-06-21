@@ -1,0 +1,115 @@
+:root {
+    --neon-inner: rgba(150, 255, 100, 0.9);    
+    --neon-outer: rgba(255, 100, 220, 0.9); 
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    min-height: 100vh;
+    display: flex;             
+    flex-direction: column;     
+    align-items: center;        
+    padding: 20px;      
+    background: linear-gradient(90deg, 
+                #96ff64 0%, 
+                #ff64dc 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    gap: 24px;
+
+}
+
+.add-todo {
+    padding: 25px;
+    width: 100%;
+    height: 45px;
+    font-size: 25px;
+    background: none;
+    border-radius: 5px;
+    outline: 2px solid #21303f;
+    transition: .22s box-shadow, .22s color;
+}
+
+.add-todo:focus-visible {
+    box-shadow: 0 0 5px 5px var(--neon-inner),
+    inset 0 0 10px 5px var(--neon-outer);
+    color:#21303f;
+}
+
+.remove-btn {
+    background: rgb(209, 206, 206);
+    border-radius: 5px;
+    border: 3px solid #837f7f;
+    color: #ff4d4d;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0 8px;
+    font-size: 1.2em;
+}
+
+.remove-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.todo-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    gap: 8px;
+}
+
+.todo-item {
+    font-size: 18px;
+    margin-bottom: 10px;
+    padding: 20px;
+    border: 3px solid #837f7f;
+    border-radius: 5px;
+    background-color: #f9f9f9; 
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+}
+
+.todo-item:hover {
+    transform: translateY(-2px); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.todo-item:not(.completed) {
+    background-color: rgba(255, 255, 255, 0.9); 
+    border-color: var(--neon-outer); 
+}
+
+.todo-item.completed {
+    background-color: rgba(220, 220, 220, 0.7); 
+    border-color: #ccc; 
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
